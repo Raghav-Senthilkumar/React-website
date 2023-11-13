@@ -1,0 +1,109 @@
+.App {
+  text-align: center;
+  background-color: #161622;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+img {
+
+  display: block;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+
+.parallax__container {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax__container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 5rem;
+  width: 100%;
+}
+
+.parallax__container img {
+  position: absolute;
+}
+
+
+
+.parallax__container h1 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 90px;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px #FB7CF6;
+}
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+}
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+}
+@media screen and (min-width: 1120px) {
+  .container {
+    height: 100vh;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+Card{
+  margin: 0 10px;
+}
