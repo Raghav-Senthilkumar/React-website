@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
+.card__article{
+position: relative;
+background-color: hsl(235, 32%, 10%);
+padding: 2.5rem;
+border-radius: 2rem;
+text-align: center;
+box-shadow: 0 20px 24px hsla(235,32%,15%,.2);
+overflow: hidden;
+width: 256px;
+    height:400px;
+    box-shadow: 0 0 10px rgba(251, 124, 246, 0.7), 0 0 20px rgba(251, 124, 246, 0.7), 0 0 40px rgba(251, 124, 246, 0.7);
+
+    /* Transition for smooth effect */
+    transition: box-shadow 0.4s ease-in-out;
+  }
+  
+  /* Hover effect for the intensified neon glow */
+  .card__article:hover {
+    box-shadow: 0 0 20px #FB7CF6, 0 0 40px #FB7CF6, 0 0 80px #FB7CF6;
+  }
+.card_data img{
+    width: 150px;
+    display: block; /* Remove extra spacing */
+  margin: auto;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-bottom: 1rem;
+    animation: float-img 2.5s ease-in-out infinite;
+    
+  
+
+}
+@keyframes float-img{
+ 0%{
+    transform: translateY(0);
+ }
+ 50%{
+    transform: translateY(-.75rem);
+ }
+ 100%{
+    transform: translateY(0);
+ }
+}
+.card_data h1{
+    line-height: 100%;
+    margin-bottom: 1rem;
+    font-size: 2.00rem;
+    font: "Poppins", sans-serif;
+    color:#fff;
+}
+.card_data p{
+    font-size: 1.10rem;
+    color: hsl(235, 20%, 57%);;
+}
+

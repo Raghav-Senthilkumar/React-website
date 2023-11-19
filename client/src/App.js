@@ -3,7 +3,11 @@ import './App.css';
 import yourFigmaImage from './rectangle.png';
 import k from './mask2.png'
 import kl from './group.png'
-import Card from './Card';
+import CardInfo from './components/CardInfo';
+import image from './chemblimage.png'
+import image2 from './dataprocess.png'
+import image3 from './datamodel.png'
+
 
 
 function App() {
@@ -11,8 +15,15 @@ function App() {
   const [file, setFile] = useState(null);
   const [predictions, setPredictions] = useState([]);
 
+  
+
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      setFile(file);
+    } else {
+      setFile(null);
+    }
   };
 
   const handleUpload = () => {
@@ -40,7 +51,7 @@ function App() {
       title.style.fontSize = `${90 + positionY * 0.05}px`;
       bg_2.style.top = `-${positionY * 0.5}px`;
       bg_3.style.top = `-${positionY*0.7}px `;
-      bg_3.style.transform =`rotate(${positionY*0.5}deg)`;
+      bg_3.style.transform =`rotate(${positionY*0.50}deg)`;
       const newOpacity = 1 - positionY * 0.002; // Adjust opacity based on scroll
       title.style.opacity = newOpacity > 0 ? newOpacity : 0;
     };
@@ -60,14 +71,34 @@ function App() {
       <img id="bg-3" src={kl} style={{ width: 379/1.2, height: 521/1.2,marginTop: '100px', marginLeft:'10px'  }}  alt="parallax" />
       
     </div>
-    <Card></Card>
-    
+    <header class="wave-effect">
+    <div class="title">
+    <h1>BACKGROUND</h1>
+  </div>
+  </header>
+    <div class="card-container">
+ <CardInfo imageUrl={image} title={'Chemical Database'} paragraph={'Fetch ids from ChEMBL Database'} ></CardInfo>
+ <CardInfo imageUrl={image2} title={'Data Processing'} paragraph={'Normalize the data and calculate descriptors'}></CardInfo>
+    <CardInfo imageUrl={image3} title={'Train Model'} paragraph={'Take descriptors and train a machine learning model'}></CardInfo>
+    </div>
+   
 
-    <img id="bg-2" src={k} style={{marginTop: '270px'}} alt="parallax" />
     
+    <div class="space">
       <h1>CSV File Upload and Prediction</h1>
-      <input type="file" accept=".csv" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
+      <input
+        type="file"
+        accept=".csv"
+        onChange={handleFileChange}
+        style={{ display: 'none' }}
+        id="fileInput"
+      />
+      <label htmlFor="fileInput" className="uploadButton">
+        {file ? file.name: 'Select File'}
+      </label>
+      <button className="roundedButton" onClick={handleUpload}>
+        Upload
+      </button>
       <div>
         <h2>Predictions:</h2>
         <ul>
@@ -78,10 +109,13 @@ function App() {
         
       {/* Add more sections or content as needed */}
       </div>
-    
+      </div>
+      <img id="bg-2" src={k} style={{marginTop: '270px'}} alt="parallax" />
     <script>
       var title
       </script>
+    
+    
     
     </div>
     
